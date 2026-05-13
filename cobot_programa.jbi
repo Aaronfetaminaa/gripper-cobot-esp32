@@ -1,0 +1,28 @@
+// Programa de prueba para gripper en cobot Elite Robot
+// OT#(48): Apertura del gripper
+// OT#(49): Cierre del gripper
+NOP
+// Abrir gripper
+DOUT OT#(48) ON
+TIMER T=0.1 S
+DOUT OT#(48) OFF
+TIMER T=3.5 S
+// Movimiento a posición de toma
+MOVJ VJ=100% CR=0.0MM ACC=65 DEC=50
+// Cerrar gripper
+DOUT OT#(49) ON
+TIMER T=0.1 S
+DOUT OT#(49) OFF
+TIMER T=5.0 S
+// Movimientos con pieza
+MOVJ VJ=100% CR=0.0MM ACC=65 DEC=50
+MOVJ VJ=100% CR=0.0MM ACC=65 DEC=50
+// Abrir gripper para liberar pieza
+DOUT OT#(48) ON
+TIMER T=0.1 S
+DOUT OT#(48) OFF
+TIMER T=5.0 S
+// Retiro / final de ciclo
+MOVJ VJ=100% CR=0.0MM ACC=63 DEC=50
+MOVJ VJ=100% CR=0.0MM ACC=85 DEC=50
+END
