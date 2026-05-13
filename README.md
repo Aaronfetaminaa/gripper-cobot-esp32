@@ -1,6 +1,6 @@
 # CoBot Gripper — ESP32-C3 SuperMini
 
-Control de gripper electronico para brazo colaborativo, basado en ESP32-C3 SuperMini.
+Control de gripper neumático para brazo colaborativo, basado en ESP32-C3 SuperMini.
 
 ## Hardware
 
@@ -34,5 +34,19 @@ Control de gripper electronico para brazo colaborativo, basado en ESP32-C3 Super
 ## Ajuste de tiempos
 
 ```cpp
-#define TIEMPO_ABRIR  3400  // ms
-#define TIEMPO_CERRAR 3400  // ms
+#define TIEMPO_ABRIR  2500  // ms
+#define TIEMPO_CERRAR 3700  // ms
+```
+
+## Programa Cobot (Elite Robot)
+
+Ver `cobot_programa.jbi` — programa de pruebas de repetibilidad.
+
+| Salida | Función |
+|---|---|
+| OT#(48) | Abrir gripper |
+| OT#(49) | Cerrar gripper |
+
+Los timers del cobot están configurados con margen de seguridad:
+- Apertura: 3.5s (gripper abre en 2.5s)
+- Cierre: 5.0s (gripper cierra en 3.7s)
